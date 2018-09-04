@@ -14,3 +14,7 @@ Capybara.register_driver :chrome_desktop_driver do |app|
   )
   Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: caps)
 end
+
+Capybara::Screenshot.register_driver(:chrome_desktop_driver) do |driver, path|
+  driver.browser.save_screenshot(path)
+end
